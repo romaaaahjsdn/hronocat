@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '../static/style.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="section">
+        <div class="inline-container">
+        <button class="arrow-btn" formaction="/aaaaa"><div class="button_text">Утро</div><div class="button_text_2">6 часов</div></button>
+        <button class="arrow-btn" formaction="/aaaaa"><div class="button_text">Учеба</div><div class="button_text_2">6 часов</div></button>
+        <button class="arrow-btn" formaction="/aaaaa"><div class="button_text">Отдых</div><div class="button_text_2">6 часов</div></button>
+        <button class="arrow-btn" formaction="/aaaaa"><div class="button_text">Хобби</div><div class="button_text_2">6 часов</div></button>
+        <button class="arrow-btn" formaction="/aaaaa"><div class="button_text">Вечер</div><div class="button_text_2">6 часов</div></button>
+        <button class="arrow-btn" formaction="/aaaaa"><div class="button_text">Сон</div><div class="button_text_2">6 часов</div></button>
+        </div>
+    </div>
+    <div class="grid">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
